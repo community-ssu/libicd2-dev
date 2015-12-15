@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+build:
+
+clean:
+	dh_testdir
+	dh_clean -plibicd2-dev
+
+binary:
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	mkdir -p debian/libicd2-dev/usr/include/icd
+	cp -a icd_dbus.h icd_log.h debian/libicd2-dev/usr/include/icd/
+	mkdir -p debian/libicd2-dev/usr/lib/pkgconfig
+	cp -a libicd2.pc debian/libicd2-dev/usr/lib/pkgconfig/
+	mkdir -p debian/libicd2-dev/usr/lib
+	ln -s libicd_dbus.so.1 debian/libicd2-dev/usr/lib/libicd_dbus.so
+	ln -s libicd_log.so.1 debian/libicd2-dev/usr/lib/libicd_log.so
+	ln -s libicd_settings.so.1 debian/libicd2-dev/usr/lib/libicd_settings.so
+	dh_installdocs -plibicd2-dev
+	dh_installchangelogs -plibicd2-dev
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+.PHONY: build clean binary

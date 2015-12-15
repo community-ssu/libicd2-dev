@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/icd
+
+Name: libicd2
+Description: Internet Connectivity daemon 2 support libraries
+Version: 0.191+0m6
+Requires: dbus-glib-1 >= 0.61 glib-2.0 >= 2.8.6
+Libs: -licd_log -licd_dbus -licd_settings
+Cflags: -I${includedir}

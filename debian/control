@@ -1,0 +1,12 @@
+Source: libicd2-dev
+Maintainer: Pali Rohár <pali.rohar@gmail.com>
+Build-Depends: debhelper (>= 5)
+
+Package: libicd2-dev
+Architecture: all
+Depends: libicd2, libdbus-1-dev, libglib2.0-dev, libosso-dev
+Section: net
+Priority: optional
+Description: Header files for Internet Connectivity daemon support libraries
+ This package contains the header files for the Internet Connectivity daemon
+ support libraries
